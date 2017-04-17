@@ -101,6 +101,7 @@ public class MainView
     public void hideToolbar() {
         toolbar.setVisibility(View.GONE);
     }
+    ///////////////////////////////// Display Settings ////////////////////////////////////////////////////
 
     @Override
     public void hideText() {
