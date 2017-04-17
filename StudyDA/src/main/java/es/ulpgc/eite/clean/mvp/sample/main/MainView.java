@@ -112,6 +112,7 @@ public class MainView
         display.setVisibility(View.VISIBLE);
     }
 
+
     public void setDisplay(String txt) {
         display.setText(txt);
     }
