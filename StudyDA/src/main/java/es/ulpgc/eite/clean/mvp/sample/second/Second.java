@@ -31,9 +31,7 @@ public interface Second {
 
         void destroyView();
 
-        boolean isToolbarVisible();
 
-        boolean isTextVisible();
 
         Integer getPositionState();
     }
@@ -48,6 +46,8 @@ public interface Second {
         void onButtonNextClicked();
 
         void onButtonBackClicked();
+
+        void onButtonBackPageClicked();
     }
 
     /**

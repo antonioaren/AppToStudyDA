@@ -52,7 +52,7 @@ public class SecondView
         btnBackPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPresenter().onButtonBackClicked();
+                getPresenter().onButtonBackPageClicked();
             }
         });
 
@@ -153,7 +153,7 @@ public class SecondView
     @Override
     public void HideBtnNext() {
         btnNext.setVisibility(View.GONE);
-    }
+  }
 
 
 }

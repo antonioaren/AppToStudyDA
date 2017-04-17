@@ -8,6 +8,8 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
+import es.ulpgc.eite.clean.mvp.sample.app.Navigator;
+import es.ulpgc.eite.clean.mvp.sample.main.Main;
 
 public class SecondPresenter extends GenericPresenter
         <Second.PresenterToView, Second.PresenterToModel, Second.ModelToPresenter, SecondModel>
@@ -114,9 +116,15 @@ public class SecondPresenter extends GenericPresenter
         //checkTextVisibility();
     }
 
+    @Override
+    public void onButtonBackPageClicked() {
+        Log.d(TAG, "calling onBtnBackPageClicked()");
+        Navigator app = (Navigator) getView().getApplication();
+        app.goToMainScreen(this);
+    }
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    // To Second //////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////// To Second //////////////////////////////////////////////////////
 
     @Override
     public void onScreenStarted() {
@@ -136,14 +144,13 @@ public class SecondPresenter extends GenericPresenter
     public void setToolbarVisibility(boolean visible) {
         toolbarVisible = visible;
     }
-
     @Override
     public void setTextVisibility(boolean visible) {
         textVisible = visible;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////// Second To //////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// Second To Main /////////////////////////////////////////////////
 
     @Override
     public Context getManagedContext() {
@@ -157,24 +164,13 @@ public class SecondPresenter extends GenericPresenter
         }
     }
 
-    //Metodo que pregunta si es visible o no.
-    @Override
-    public boolean isToolbarVisible() {
-        return toolbarVisible;
-    }
-
-    @Override
-    public boolean isTextVisible() {
-        return textVisible;
-    }
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////// States //////////////////////////////////////////////////////////
+    /////////////////////////////// States /////////////////////////////////////////////////////////
 
     @Override
     public void setPositionState(Integer Position) {
         getModel().setK(Position);
     }
-
     @Override
     public Integer getPositionState() {
         return getModel().getK();
