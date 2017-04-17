@@ -19,7 +19,6 @@ public class App extends Application implements Mediator, Navigator {
         super.onCreate();
         toMainState = new MainState();
         toMainState.Position = 0;
-        toMainState.MainFirstTime = true;
         //Estados iniciales de algunas de las variables.
     }
 
@@ -30,7 +29,7 @@ public class App extends Application implements Mediator, Navigator {
     public void startingMainScreen(Main.ToMain presenter) {
         if (toMainState != null) {
             presenter.setPosition(toMainState.Position);
-            presenter.setFirstTimeRunning(toMainState.MainFirstTime);
+            presenter.setFirstTimeRunning(false);
         }
         presenter.onScreenStarted();
     }
@@ -39,13 +38,12 @@ public class App extends Application implements Mediator, Navigator {
     public void startingSecondScreen(Second.ToSecond presenter) {
         if (MaintoSecondState != null) {
             presenter.setPositionState(MaintoSecondState.position);
-
         }
         presenter.onScreenStarted();
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    // Navigator /////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////
+    // Navigator ///////////////////////////////////////////////////////////////////////////
 
 
     @Override
@@ -65,8 +63,6 @@ public class App extends Application implements Mediator, Navigator {
         MaintoSecondState = new SecondState();
 
         MaintoSecondState.position = presenter.getStatePosition();
-        MaintoSecondState.MainFirstTime = presenter.isFirstTimeRunning();
-
 
         Context view = presenter.getManagedContext(); //contexto Android
         if (view != null) {
@@ -80,7 +76,6 @@ public class App extends Application implements Mediator, Navigator {
 
     private class MainState {
         Integer Position;
-        boolean MainFirstTime;
     }
     private class SecondState {
         Integer position;

@@ -2,6 +2,7 @@ package es.ulpgc.eite.clean.mvp.sample.main;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class MainView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "Creating View");
 
         display = (TextView) findViewById(R.id.display);
 
@@ -105,6 +107,7 @@ public class MainView
 
     @Override
     public void setDisplay(String txt) {
+        Log.d(TAG, "calling setDisplay()");
         display.setText(txt);
     }
 

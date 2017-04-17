@@ -108,7 +108,7 @@ public interface Main {
 
         String getButtonNextPageLabel();
 
-        void setDefault();
+        void Default();
     }
 
     /**

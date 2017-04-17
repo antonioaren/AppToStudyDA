@@ -29,7 +29,6 @@ public class MainPresenter extends GenericPresenter
     public void onCreate(Main.PresenterToView view) {
         super.onCreate(MainModel.class, this);
         setView(view);
-        Log.d(TAG, "calling onCreate()");
 
         Log.d(TAG, "calling startingMainScreen()");
         Mediator app = (Mediator) getView().getApplication();
@@ -102,8 +101,6 @@ public class MainPresenter extends GenericPresenter
     public void onButtonNextPageClicked() {
         Log.d(TAG, "calling onBtnNextPageClicked()");
         Navigator app = (Navigator) getView().getApplication();
-
-        setFirstTimeRunning(false);
         app.goToSecondScreen(this);
     }
 
@@ -113,10 +110,13 @@ public class MainPresenter extends GenericPresenter
 
     @Override
     public void onScreenStarted() {
-        Log.d(TAG, "calling onScreenStarted()");
+        Log.d(TAG, "calling onScreenStartedMainPresenter()");
         if (isViewRunning()) {
 
-            CheckPosition();
+            if (isFirstTimeRunning) {
+                getModel().Default();
+            }
+
             getView().setDisplay(getModel().getName());
             getView().setBtnNextLabel(getModel().getLabelNextBtn());
             getView().setBtnBackLabel(getModel().getLabelBackBtn());
@@ -146,14 +146,14 @@ public class MainPresenter extends GenericPresenter
     /////////////////////// State //////////////////////////////////////////////////////
     @Override
     public void setPosition(Integer position) {
-        this.k = position;
+        getModel().setK(position);
     }
     @Override
     public Integer getStatePosition() {
         return getModel().getK();
     }
 
-
+    //Probando pasar estados primera vez que ha sido activada.
     @Override
     public boolean isFirstTimeRunning() {
         return isFirstTimeRunning;
@@ -187,10 +187,10 @@ public class MainPresenter extends GenericPresenter
         }
     }
 
-    private void CheckPosition() {
-        if (isFirstTimeRunning) {
-            getModel().setDefault();
-        }
-    }
+//    private void CheckPosition() {
+//        if (isFirstTimeRunning) {
+//            getModel().Default();
+//        }
+//    }
 
 }

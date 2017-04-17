@@ -1,5 +1,7 @@
 package es.ulpgc.eite.clean.mvp.sample.main;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
@@ -7,11 +9,6 @@ import es.ulpgc.eite.clean.mvp.GenericModel;
 
 public class MainModel extends GenericModel<Main.ModelToPresenter>
         implements Main.PresenterToModel {
-
-    private String dummyText;
-    private String dummyLabel;
-    private int numOfTimes;
-    private String msgText;
 
     private ArrayList<String> nombres;
     private Integer k;
@@ -31,11 +28,12 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     public void onCreate(Main.ModelToPresenter presenter) {
         super.onCreate(presenter);
 
+        Log.d(TAG, "calling CreatingModel");
+
         nombres = new ArrayList<String>();
         nombres.add("Pedro");
         nombres.add("Carolina");
         nombres.add("Pedro Antonio");
-
 
         f = 0;
         l = nombres.size() - 1;
@@ -64,13 +62,12 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
         return nombres.get(k);
     }
 
-    ////////////////////////////////////                 ///////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////// Puntero Dinámico ////////////////////////////////////////////
-    ///////////////////////////////////                  ////////////////////////////////////////
 
     @Override
-    public void setDefault() {
-        setK(0);
+    public void Default() {
+        k = 0;
     }
 
     @Override
@@ -103,7 +100,6 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     public Integer getL() {
         return l;
     }
-
     @Override
     public void setL(Integer l) {
         this.l = l;
