@@ -19,12 +19,7 @@ public interface Main {
     interface ToMain {
         void onScreenStarted();
 
-        void setToolbarVisibility(boolean visible);
-
-        void setTextVisibility(boolean visible);
-
         void setPosition(Integer position);
-
         void setFirstTimeRunning(boolean firstTimeRunning);
     }
 
@@ -32,10 +27,6 @@ public interface Main {
         Context getManagedContext();
 
         void destroyView();
-
-        boolean isToolbarVisible();
-
-        boolean isTextVisible();
 
         Integer getStatePosition();
 
@@ -60,45 +51,32 @@ public interface Main {
      * Required VIEW methods available to PRESENTER
      */
     interface PresenterToView extends ContextView {
-        void finishScreen();
-
-        void hideToolbar();
-
-        void hideText();
-
-        void showText();
-
         void setDisplay(String txt);
 
         void setBtnNextLabel(String txt);
 
         void setBtnBackLabel(String txt);
-
         void setBtnNextPageLabel(String txt);
+        void ShowBtnNext();
 
         void ShowBtnBack();
+        void HideBtnNext();
 
         void HideBtnBack();
 
-        void ShowBtnNext();
-
-        void HideBtnNext();
+        void finishScreen();
     }
 
     /**
      * Methods offered to MODEL to communicate with PRESENTER
      */
     interface PresenterToModel extends Model<ModelToPresenter> {
-        void onChangeMsgByBtnClicked();
 
-        String getText();
 
-        String getLabel();
 
         ///////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////
         String getName();
-
 
         //Puntero Dinámico
         Integer getK();

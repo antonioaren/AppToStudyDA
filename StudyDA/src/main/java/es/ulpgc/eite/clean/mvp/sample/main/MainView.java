@@ -97,60 +97,45 @@ public class MainView
         finish();
     }
 
-    @Override
-    public void hideToolbar() {
-        toolbar.setVisibility(View.GONE);
-    }
-    ///////////////////////////////// Display Settings ////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /////////////////////////////// Display Settings /////////////////////////////////////////////
 
     @Override
-    public void hideText() {
-        display.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showText() {
-        display.setVisibility(View.VISIBLE);
-    }
-
-
     public void setDisplay(String txt) {
         display.setText(txt);
     }
 
-    /////////////////////////////////SetTextLabel////////////////////////////////////////////////////
+    /////////////////////////////////SetTextLabel///////////////////////////////////////////////////
 
     @Override
     public void setBtnNextLabel(String txt) {
         btnNext.setText(txt);
     }
-
     @Override
     public void setBtnBackLabel(String txt) {
         btnBack.setText(txt);
     }
-
     @Override
     public void setBtnNextPageLabel(String txt) {
         btnNextPage.setText(txt);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////Visibilility///////777777/////////////////////////////////////
     @Override
     public void ShowBtnBack() {
         btnBack.setVisibility(View.VISIBLE);
     }
-
     @Override
     public void HideBtnBack() {
         btnBack.setVisibility(View.INVISIBLE);
     }
-
     @Override
     public void ShowBtnNext() {
         btnNext.setVisibility(View.VISIBLE);
     }
-
     @Override
     public void HideBtnNext() {
         btnNext.setVisibility(View.INVISIBLE);

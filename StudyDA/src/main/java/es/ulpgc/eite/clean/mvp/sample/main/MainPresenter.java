@@ -14,10 +14,6 @@ public class MainPresenter extends GenericPresenter
         <Main.PresenterToView, Main.PresenterToModel, Main.ModelToPresenter, MainModel>
         implements Main.ViewToPresenter, Main.ModelToPresenter, Main.MainTo, Main.ToMain {
 
-
-    private boolean toolbarVisible;
-    private boolean buttonClicked;
-    private boolean textVisible;
     private Integer k;
     private boolean isFirstTimeRunning;
 
@@ -41,7 +37,6 @@ public class MainPresenter extends GenericPresenter
         app.startingMainScreen(this);
 
     }
-
     /**
      * Operation called by VIEW after its reconstruction.
      * Always call {@link GenericPresenter#setView(ContextView)}
@@ -54,20 +49,7 @@ public class MainPresenter extends GenericPresenter
         setView(view);
         Log.d(TAG, "calling onResume()");
 
-
-        if (configurationChangeOccurred()) {
-            getView().setBtnNextLabel(getModel().getLabel());
-
-            checkToolbarVisibility();
-            checkTextVisibility();
-
-            if (buttonClicked) {
-                getView().setDisplay(getModel().getText());
-            }
-        }
-
     }
-
     /**
      * Helper method to inform Presenter that a onBackPressed event occurred
      * Called by {@link GenericActivity}
@@ -76,7 +58,6 @@ public class MainPresenter extends GenericPresenter
     public void onBackPressed() {
         Log.d(TAG, "calling onBackPressed()");
     }
-
     /**
      * Hook method called when the VIEW is being destroyed or
      * having its configuration changed.
@@ -147,22 +128,11 @@ public class MainPresenter extends GenericPresenter
     }
 
     @Override
-    public void setToolbarVisibility(boolean visible) {
-        toolbarVisible = visible;
-    }
-
-    @Override
-    public void setTextVisibility(boolean visible) {
-        textVisible = visible;
-    }
-
-    ///////////////////////////////////////////////////////////////////////////////////
-    // Second To //////////////////////////////////////////////////////////////////////
-
-    @Override
     public Context getManagedContext() {
         return getActivityContext();
     }
+
+    /////////////////////////////// Second To //////////////////////////////////////////////////////
 
     @Override
     public void destroyView() {
@@ -171,16 +141,6 @@ public class MainPresenter extends GenericPresenter
         }
     }
 
-    //Metodo que pregunta si es visible o no.
-    @Override
-    public boolean isToolbarVisible() {
-        return toolbarVisible;
-    }
-
-    @Override
-    public boolean isTextVisible() {
-        return textVisible;
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////
     /////////////////////// State //////////////////////////////////////////////////////
@@ -188,7 +148,6 @@ public class MainPresenter extends GenericPresenter
     public void setPosition(Integer position) {
         this.k = position;
     }
-
     @Override
     public Integer getStatePosition() {
         return getModel().getK();
@@ -199,7 +158,6 @@ public class MainPresenter extends GenericPresenter
     public boolean isFirstTimeRunning() {
         return isFirstTimeRunning;
     }
-
     @Override
     public void setFirstTimeRunning(boolean firstTimeRunning) {
         isFirstTimeRunning = firstTimeRunning;
@@ -209,32 +167,11 @@ public class MainPresenter extends GenericPresenter
     ////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////
 
-    private void checkToolbarVisibility() {
-        Log.d(TAG, "calling checkToolbarVisibility()");
-        if (isViewRunning()) {
-            if (!toolbarVisible) {
-                getView().hideToolbar();
-            }
-        }
-
-    }
-
-    private void checkTextVisibility() {
-        Log.d(TAG, "calling checkTextVisibility()");
-        if (isViewRunning()) {
-            if (!textVisible) {
-                getView().hideText();
-            } else {
-                getView().showText();
-            }
-        }
-    }
 
     private void CheckBtnVisibility() {
         CheckBtnBackVisibility();
         CheckBtnNextVisibility();
     }
-
     private void CheckBtnBackVisibility() {
         if (getModel().getK() != getModel().getF()) {
             getView().ShowBtnBack();
@@ -242,7 +179,6 @@ public class MainPresenter extends GenericPresenter
             getView().HideBtnBack();
         }
     }
-
     private void CheckBtnNextVisibility() {
         if (getModel().getK() != getModel().getL()) {
             getView().ShowBtnNext();
