@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
+import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 
 
 public class MainModel extends GenericModel<Main.ModelToPresenter>
@@ -18,6 +19,7 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     private String ButtonBackLabel;
     private String ButtonNextPageLabel;
 
+
     /**
      * Method that recovers a reference to the PRESENTER
      * You must ALWAYS call {@link super#onCreate(Object)} here
@@ -30,10 +32,12 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
 
         Log.d(TAG, "calling CreatingModel");
 
-        nombres = new ArrayList<String>();
-        nombres.add("Pedro");
-        nombres.add("Carolina");
-        nombres.add("Pedro Antonio");
+        Storage.getInstance();
+
+//        nombres = new ArrayList<String>();
+//        nombres.add("Pedro");
+//        nombres.add("Carolina");
+//        nombres.add("Pedro Antonio");
 
         f = 0;
         l = nombres.size() - 1;
@@ -112,7 +116,6 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     public void nextPosition() {
         k++;
     }
-
     @Override
     public void backPosition() {
         k--;
@@ -125,7 +128,6 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     public Integer SizeList() {
         return nombres.size();
     }
-
 //    public void CheckLastElement() {
 //        if(k == nombres.size()){
 //            setK(0);
@@ -136,7 +138,6 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////// Labels /////////////////////////////////////////////////
-
     @Override
     public String getLabelNextBtn() {
         return ButtonNextLabel;
