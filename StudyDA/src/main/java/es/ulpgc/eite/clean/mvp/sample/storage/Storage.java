@@ -10,6 +10,8 @@ public class Storage {
 
     private ArrayList<String> nombres;
 
+    //TODO Añadir lo que se repite en ambos modelos.
+
     private static final Storage ourInstance = new Storage();
 
     public static Storage getInstance() {
