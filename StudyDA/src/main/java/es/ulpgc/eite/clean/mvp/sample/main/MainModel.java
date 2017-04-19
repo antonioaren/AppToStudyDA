@@ -6,11 +6,13 @@ import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
 
+import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
+
 
 public class MainModel extends GenericModel<Main.ModelToPresenter>
         implements Main.PresenterToModel {
 
-    private ArrayList<String> nombres;
+    //private ArrayList<String> nombres;
     private Integer k;
     private Integer f;
     private Integer l;
@@ -33,13 +35,15 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
         Log.d(TAG, "calling CreatingModel");
 
 
-        nombres = new ArrayList<String>();
-        nombres.add("Pedro");
-        nombres.add("Carolina");
-        nombres.add("Pedro Antonio");
+//        nombres = new ArrayList<String>();
+//        nombres.add("Pedro");
+//        nombres.add("Carolina");
+//        nombres.add("Pedro Antonio");
+
+
 
         f = 0;
-        l = nombres.size() - 1;
+//      l = nombres.size() - 1;
 
         ButtonNextLabel = "Siguiente";
         ButtonBackLabel = "Atrás";
@@ -61,21 +65,15 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     // Presenter To Model ////////////////////////////////////////////////////////////
 
     @Override
-    public String getName(int position) {
-        return getName(position);
+    public String getName() {
+        return Storage.getInstance().getNames(getK());
     }
-
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////// Puntero Dinámico ////////////////////////////////////////////
 
     @Override
     public void Default() {
         k = 0;
-    }
-
-    @Override
-    public String getName() {
-        return null;
     }
 
     @Override
@@ -126,10 +124,10 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     /////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////Tamaño de la lista////////////////////////////////////////
 
-    @Override
-    public Integer SizeList() {
-        return nombres.size();
-    }
+//    @Override
+//    public Integer SizeList() {
+//        return nombres.size();
+//    }
 //    public void CheckLastElement() {
 //        if(k == nombres.size()){
 //            setK(0);

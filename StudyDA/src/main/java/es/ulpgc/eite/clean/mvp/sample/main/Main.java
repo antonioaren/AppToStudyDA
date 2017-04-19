@@ -98,8 +98,6 @@ public interface Main {
 
         void backPosition();
 
-        //Tamaño de la lista
-        Integer SizeList();
 
         //Label de los botones.
         String getLabelNextBtn();
@@ -107,8 +105,6 @@ public interface Main {
         String getLabelBackBtn();
 
         String getButtonNextPageLabel();
-
-        String getName(int position);
 
         void Default();
     }
