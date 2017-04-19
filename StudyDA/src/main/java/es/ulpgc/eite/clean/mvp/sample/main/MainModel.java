@@ -5,7 +5,6 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
-import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 
 
 public class MainModel extends GenericModel<Main.ModelToPresenter>
