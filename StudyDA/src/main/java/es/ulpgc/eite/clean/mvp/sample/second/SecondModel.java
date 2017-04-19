@@ -3,6 +3,7 @@ package es.ulpgc.eite.clean.mvp.sample.second;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
+import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 
 
 public class SecondModel extends GenericModel<Second.ModelToPresenter>
@@ -31,14 +32,8 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     public void onCreate(Second.ModelToPresenter presenter) {
         super.onCreate(presenter);
 
-        nombres = new ArrayList<String>();
-        nombres.add("Pedro");
-        nombres.add("Carolina");
-        nombres.add("Pedro Antonio");
-
-
         f = 0;
-        l = nombres.size() - 1;
+        l = SizeList() - 1;
 
         ButtonNextLabel = "Siguiente";
         ButtonBackLabel = "Atrás";
@@ -58,32 +53,9 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     ///////////////////////////////////////////////////////////////////////////////////
     // Presenter To Model ////////////////////////////////////////////////////////////
 
-
-    @Override
-    public void onChangeMsgByBtnClicked() {
-        msgText = dummyText;
-        if (numOfTimes > 0) {
-            msgText += ", " + numOfTimes + " times";
-        }
-        numOfTimes++;
-    }
-
-    @Override
-    public String getText() {
-        return msgText;
-    }
-
-    @Override
-    public String getLabel() {
-        return dummyLabel;
-    }
-
-
-    ///////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
     @Override
     public String getName() {
-        return nombres.get(k);
+        return Storage.getInstance().getNames(getK());
     }
 
     //Puntero Dinámico
@@ -91,7 +63,6 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     public Integer getK() {
         return k;
     }
-
     @Override
     public void setK(Integer pointer) {
         this.k = pointer;
@@ -133,14 +104,8 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     //Tamaño de la lista
     @Override
     public Integer SizeList() {
-        return nombres.size();
+        return Storage.getInstance().getSize();
     }
-
-//    public void CheckLastElement() {
-//        if(k == nombres.size()){
-//            setK(0);
-//        }
-//    }
 
     //Label de los botones.
     @Override

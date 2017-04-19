@@ -83,11 +83,7 @@ public interface Second {
      * Methods offered to MODEL to communicate with PRESENTER
      */
     interface PresenterToModel extends Model<ModelToPresenter> {
-        void onChangeMsgByBtnClicked();
 
-        String getText();
-
-        String getLabel();
 
         ///////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////
