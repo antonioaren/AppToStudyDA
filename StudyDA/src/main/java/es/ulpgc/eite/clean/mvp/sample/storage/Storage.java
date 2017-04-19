@@ -26,4 +26,8 @@ public class Storage {
     public String getNames(int position) {
         return nombres.get(position);
     }
+
+    public Integer getSize() {
+        return nombres.size();
+    }
 }

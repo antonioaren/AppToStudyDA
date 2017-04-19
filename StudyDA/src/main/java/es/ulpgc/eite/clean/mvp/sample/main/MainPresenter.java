@@ -14,7 +14,7 @@ public class MainPresenter extends GenericPresenter
         <Main.PresenterToView, Main.PresenterToModel, Main.ModelToPresenter, MainModel>
         implements Main.ViewToPresenter, Main.ModelToPresenter, Main.MainTo, Main.ToMain {
 
-    private Integer k;
+    //private Integer k;
     private boolean isFirstTimeRunning;
 
     /**
