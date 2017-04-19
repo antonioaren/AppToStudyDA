@@ -20,6 +20,7 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     private String ButtonNextPageLabel;
 
 
+
     /**
      * Method that recovers a reference to the PRESENTER
      * You must ALWAYS call {@link super#onCreate(Object)} here
@@ -32,12 +33,11 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
 
         Log.d(TAG, "calling CreatingModel");
 
-        Storage.getInstance();
 
-//        nombres = new ArrayList<String>();
-//        nombres.add("Pedro");
-//        nombres.add("Carolina");
-//        nombres.add("Pedro Antonio");
+        nombres = new ArrayList<String>();
+        nombres.add("Pedro");
+        nombres.add("Carolina");
+        nombres.add("Pedro Antonio");
 
         f = 0;
         l = nombres.size() - 1;
@@ -62,8 +62,8 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     // Presenter To Model ////////////////////////////////////////////////////////////
 
     @Override
-    public String getName() {
-        return nombres.get(k);
+    public String getName(int position) {
+        return getName(position);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,10 +75,14 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     }
 
     @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
     public Integer getK() {
         return k;
     }
-
     @Override
     public void setK(Integer pointer) {
         this.k = pointer;
@@ -91,7 +95,6 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     public Integer getF() {
         return f;
     }
-
     @Override
     public void setF(Integer FirstPosition) {
         this.f = FirstPosition;

@@ -108,6 +108,8 @@ public interface Main {
 
         String getButtonNextPageLabel();
 
+        String getName(int position);
+
         void Default();
     }
 

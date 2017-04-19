@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Storage {
     private ArrayList nombres;
-    private Integer f;
-    private Integer l;
-    private Integer k;
+//    private Integer f;
+//    private Integer l;
+//    private Integer k;
 
     private static final Storage Instance = new Storage();
 
@@ -20,53 +20,17 @@ public class Storage {
         nombres.add("Pedro");
         nombres.add("Carolina");
         nombres.add("Pedro Antonio");
-
-        f = 0;
-        l = nombres.size() - 1;
+//
     }
 
 
     public String getName(int position) {
-        setK(position);
-        return (String) nombres.get(k);
+        return (String) nombres.get(position);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////// Puntero Dinámico ////////////////////////////////////////////
-
-    public Integer getK() {
-        return k;
-    }
-
-    public void setK(Integer position) {
-        this.k = position;
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////Puntero Estático Primer elemento/////////////////////////////
-
-    public Integer getF() {
-        return f;
-    }
-
-    public void setF(Integer FirstPosition) {
-        this.f = FirstPosition;
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////Puntero Estático último elemento//////////////////////////////
-
-    public Integer getL() {
-        return l;
-    }
-
-    public void setL(Integer l) {
-        this.l = l;
-    }
-
-
-    public static Storage getInstance() {
+    public Storage getInstance() {
         return Instance;
     }
+
 
 }
