@@ -19,10 +19,6 @@ public interface Second {
     interface ToSecond {
         void onScreenStarted();
 
-        void setToolbarVisibility(boolean visible);
-
-        void setTextVisibility(boolean visible);
-
         void setPositionState(Integer Position);
     }
 
@@ -55,12 +51,6 @@ public interface Second {
      */
     interface PresenterToView extends ContextView {
         void finishScreen();
-
-        void hideToolbar();
-
-        void hideText();
-
-        void showText();
 
         void setDisplay(String txt);
 

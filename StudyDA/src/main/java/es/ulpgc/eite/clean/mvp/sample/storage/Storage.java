@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class Storage {
 
     private ArrayList<String> nombres;
+    private String ButtonNextLabel;
+    private String ButtonBackLabel;
 
     //TODO Añadir lo que se repite en ambos modelos.
 
@@ -23,6 +25,9 @@ public class Storage {
         nombres.add("Pedro");
         nombres.add("Carolina");
         nombres.add("Pedro Antonio");
+
+        ButtonBackLabel = "Back";
+        ButtonNextLabel = "Siguiente";
     }
 
     public String getNames(int position) {
@@ -31,5 +36,13 @@ public class Storage {
 
     public Integer getSize() {
         return nombres.size();
+    }
+
+    public String getButtonNextLabel() {
+        return ButtonNextLabel;
+    }
+
+    public String getButtonBackLabel() {
+        return ButtonBackLabel;
     }
 }

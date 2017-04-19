@@ -1,6 +1,6 @@
 package es.ulpgc.eite.clean.mvp.sample.second;
 
-import java.util.ArrayList;
+
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
@@ -9,17 +9,11 @@ import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 public class SecondModel extends GenericModel<Second.ModelToPresenter>
         implements Second.PresenterToModel {
 
-    private String dummyText;
-    private String dummyLabel;
-    private int numOfTimes;
-    private String msgText;
 
-    private ArrayList<String> nombres;
     private Integer k;
     private Integer f;
     private Integer l;
-    private String ButtonNextLabel;
-    private String ButtonBackLabel;
+
     private String ButtonBackPageLabel;
 
     /**
@@ -35,8 +29,6 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
         f = 0;
         l = SizeList() - 1;
 
-        ButtonNextLabel = "Siguiente";
-        ButtonBackLabel = "Atrás";
         ButtonBackPageLabel = "Main";
     }
 
@@ -84,7 +76,6 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     public Integer getL() {
         return l;
     }
-
     @Override
     public void setL(Integer l) {
         this.l = l;
@@ -95,7 +86,6 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
     public void nextPosition() {
         k++;
     }
-
     @Override
     public void backPosition() {
         k--;
@@ -107,15 +97,15 @@ public class SecondModel extends GenericModel<Second.ModelToPresenter>
         return Storage.getInstance().getSize();
     }
 
-    //Label de los botones.
+    ////////////////////////// Label de los botones./////////////////////////////////////
     @Override
     public String getLabelNextBtn() {
-        return ButtonNextLabel;
+        return Storage.getInstance().getButtonNextLabel();
     }
 
     @Override
     public String getLabelBackBtn() {
-        return ButtonBackLabel;
+        return Storage.getInstance().getButtonBackLabel();
     }
 
     @Override

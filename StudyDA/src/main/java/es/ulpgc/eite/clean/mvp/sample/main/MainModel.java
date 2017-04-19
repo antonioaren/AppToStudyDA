@@ -16,8 +16,7 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     private Integer k;
     private Integer f;
     private Integer l;
-    private String ButtonNextLabel;
-    private String ButtonBackLabel;
+
     private String ButtonNextPageLabel;
 
 
@@ -34,16 +33,9 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
 
         Log.d(TAG, "calling CreatingModel");
 
-//        nombres = new ArrayList<String>();
-//        nombres.add("Pedro");
-//        nombres.add("Carolina");
-//        nombres.add("Pedro Antonio");
-
         f = 0;
         l = getSize() - 1;
 
-        ButtonNextLabel = "Siguiente";
-        ButtonBackLabel = "Atrás";
         ButtonNextPageLabel = "Second";
 
     }
@@ -129,11 +121,11 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     /////////////////////////////////////// Labels /////////////////////////////////////////////////
     @Override
     public String getLabelNextBtn() {
-        return ButtonNextLabel;
+        return Storage.getInstance().getButtonNextLabel();
     }
     @Override
     public String getLabelBackBtn() {
-        return ButtonBackLabel;
+        return Storage.getInstance().getButtonBackLabel();
     }
     @Override
     public String getButtonNextPageLabel() {

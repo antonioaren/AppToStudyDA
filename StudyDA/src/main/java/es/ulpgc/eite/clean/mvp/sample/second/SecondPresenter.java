@@ -16,9 +16,6 @@ public class SecondPresenter extends GenericPresenter
         implements Second.ViewToPresenter, Second.ModelToPresenter, Second.SecondTo, Second.ToSecond {
 
 
-    private boolean toolbarVisible;
-    private boolean buttonClicked;
-    private boolean textVisible;
 
     private Integer savedPosition;
 
@@ -53,16 +50,7 @@ public class SecondPresenter extends GenericPresenter
         setView(view);
         Log.d(TAG, "calling onResume()");
 
-
         if (configurationChangeOccurred()) {
-            getView().setBtnNextLabel(getModel().getLabel());
-
-            checkToolbarVisibility();
-            checkTextVisibility();
-
-            if (buttonClicked) {
-                getView().setDisplay(getModel().getText());
-            }
         }
 
     }
@@ -140,14 +128,6 @@ public class SecondPresenter extends GenericPresenter
         CheckBtnVisibility();
     }
 
-    @Override
-    public void setToolbarVisibility(boolean visible) {
-        toolbarVisible = visible;
-    }
-    @Override
-    public void setTextVisibility(boolean visible) {
-        textVisible = visible;
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////// Second To Main /////////////////////////////////////////////////
@@ -178,28 +158,7 @@ public class SecondPresenter extends GenericPresenter
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////// Metodos propios /////////////////////////////////////////////////
-
-    private void checkToolbarVisibility() {
-        Log.d(TAG, "calling checkToolbarVisibility()");
-        if (isViewRunning()) {
-            if (!toolbarVisible) {
-                getView().hideToolbar();
-            }
-        }
-
-    }
-
-    private void checkTextVisibility() {
-        Log.d(TAG, "calling checkTextVisibility()");
-        if (isViewRunning()) {
-            if (!textVisible) {
-                getView().hideText();
-            } else {
-                getView().showText();
-            }
-        }
-    }
+    //////////////////////////////// Metodos propios ////////////////////////////////////////////////
 
     private void CheckBtnVisibility() {
         CheckBtnBackVisibility();
