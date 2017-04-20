@@ -2,15 +2,17 @@
 <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+
+    android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
 
 
+    android:orientation="vertical"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".main.MainView"
+    tools:context="es.ulpgc.eite.clean.mvp.sample.main.MainView"
     tools:listitem="@layout/item_list_content">
 
     <!--El codigo que está separado no tego idea de lo que hace. Veo algo del contexto de android

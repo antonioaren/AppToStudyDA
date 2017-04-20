@@ -1,14 +1,22 @@
 package es.ulpgc.eite.clean.mvp.sample.main;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.modelview.ModelItem;
+import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 
 public class MainView
         extends GenericActivity<Main.PresenterToView, Main.ViewToPresenter, MainPresenter>
@@ -21,6 +29,7 @@ public class MainView
     private Button btnNextPage;
 
     private TextView display;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +65,9 @@ public class MainView
                 getPresenter().onButtonNextPageClicked();
             }
         });
+
+        recyclerView = (RecyclerView) findViewById(R.id.list);
+        recyclerView.setAdapter(new ModelItemRecyclerViewAdapter());
 
     }
 
@@ -144,4 +156,66 @@ public class MainView
         btnNext.setVisibility(View.INVISIBLE);
     }
 
+    //////////////////////////////////////// ADAPTER ///////////////////////////////////////////////
+
+    private class ModelItemRecyclerViewAdapter
+            extends RecyclerView.Adapter<ModelItemRecyclerViewAdapter.ViewHolder> {
+
+        private List<ModelItem> items;
+
+        public ModelItemRecyclerViewAdapter() {
+            items = new ArrayList<>();
+        }
+
+
+        public void setItemList(List<ModelItem> items) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_list_content, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(final ViewHolder holder, int position) {
+            holder.item = items.get(position);
+            holder.contentView.setText(items.get(position).getTitle());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getPresenter().onItemClicked(holder.item);
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+
+        ///////////////////////////// ViewHolder Class //////////////////////////////////
+
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            public final View itemView;
+            public final TextView contentView;
+            public ModelItem item;
+
+            public ViewHolder(View view) {
+                super(view);
+                itemView = view;
+                contentView = (TextView) view.findViewById(R.id.items);
+            }
+
+            @Override
+            public String toString() {
+                return super.toString() + " '" + contentView.getText() + "'";
+            }
+        }
+    }
 }
+

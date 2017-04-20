@@ -5,6 +5,7 @@ import android.content.Context;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
+import es.ulpgc.eite.clean.mvp.sample.modelview.ModelItem;
 
 /**
  * Created by Luis on 12/11/16.
@@ -45,6 +46,8 @@ public interface Main {
         void onButtonBackClicked();
 
         void onButtonNextPageClicked();
+
+        void onItemClicked(ModelItem item);
     }
 
     /**
