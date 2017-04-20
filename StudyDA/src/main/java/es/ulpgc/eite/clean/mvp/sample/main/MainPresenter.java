@@ -9,12 +9,12 @@ import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.app.Navigator;
+import es.ulpgc.eite.clean.mvp.sample.modelview.ModelItem;
 
 public class MainPresenter extends GenericPresenter
         <Main.PresenterToView, Main.PresenterToModel, Main.ModelToPresenter, MainModel>
         implements Main.ViewToPresenter, Main.ModelToPresenter, Main.MainTo, Main.ToMain {
 
-    //private Integer k;
     private boolean isFirstTimeRunning;
 
     /**
@@ -104,6 +104,11 @@ public class MainPresenter extends GenericPresenter
         app.goToSecondScreen(this);
     }
 
+    @Override
+    public void onItemClicked(ModelItem item) {
+
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////
     // To Second //////////////////////////////////////////////////////////////////////
@@ -117,10 +122,12 @@ public class MainPresenter extends GenericPresenter
                 getModel().Default();
             }
 
-            getView().setDisplay(getModel().getName());
-            getView().setBtnNextLabel(getModel().getLabelNextBtn());
-            getView().setBtnBackLabel(getModel().getLabelBackBtn());
-            getView().setBtnNextPageLabel(getModel().getButtonNextPageLabel());
+//          getView().setDisplay(getModel().getName());
+//          getView().setBtnNextLabel(getModel().getLabelNextBtn());
+//          getView().setBtnBackLabel(getModel().getLabelBackBtn());
+//          getView().setBtnNextPageLabel(getModel().getButtonNextPageLabel());
+
+            getModel().LoadItems();
         }
         //checkToolbarVisibility();
         //checkTextVisibility();

@@ -2,6 +2,8 @@ package es.ulpgc.eite.clean.mvp.sample.main;
 
 import android.content.Context;
 
+import java.util.List;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
@@ -68,6 +70,9 @@ public interface Main {
         void HideBtnBack();
 
         void finishScreen();
+
+        //////////////////////////////////////// ADAPTER ///////////////////////////////////////////////
+        void setRecyclerAdapterContent(List<ModelItem> items);
     }
 
     /**
@@ -110,6 +115,8 @@ public interface Main {
         String getButtonNextPageLabel();
 
         void Default();
+
+        void LoadItems();
     }
 
     /**

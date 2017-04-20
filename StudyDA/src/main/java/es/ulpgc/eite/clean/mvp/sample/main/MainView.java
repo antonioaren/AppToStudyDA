@@ -29,6 +29,7 @@ public class MainView
     private Button btnNextPage;
 
     private TextView display;
+
     private RecyclerView recyclerView;
 
     @Override
@@ -157,6 +158,16 @@ public class MainView
     }
 
     //////////////////////////////////////// ADAPTER ///////////////////////////////////////////////
+    @Override
+    public void setRecyclerAdapterContent(List<ModelItem> items) {
+        if (recyclerView != null) {
+            //Crea un objeto de la clase ModelItemRecyclerViewAdapter.
+
+            ModelItemRecyclerViewAdapter recyclerAdapter =
+                    (ModelItemRecyclerViewAdapter) recyclerView.getAdapter();
+            recyclerAdapter.setItemList(items);
+        }
+    }
 
     private class ModelItemRecyclerViewAdapter
             extends RecyclerView.Adapter<ModelItemRecyclerViewAdapter.ViewHolder> {

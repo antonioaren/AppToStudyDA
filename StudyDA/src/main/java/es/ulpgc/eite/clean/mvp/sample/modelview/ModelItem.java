@@ -1,9 +1,5 @@
 package es.ulpgc.eite.clean.mvp.sample.modelview;
 
-/**
- * Created by Luis on 19/11/16.
- */
-
 public class ModelItem {
 
     private String id;

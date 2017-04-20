@@ -66,6 +66,11 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
     }
 
     @Override
+    public void LoadItems() {
+
+    }
+
+    @Override
     public Integer getK() {
         return k;
     }
