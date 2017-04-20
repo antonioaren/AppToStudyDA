@@ -7,7 +7,8 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="visible">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -18,11 +19,15 @@
             android:theme="?attr/actionBarTheme" />
     </android.support.design.widget.AppBarLayout>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/content_main_itemlist" />
+        <include layout="@layout/content_main" />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
