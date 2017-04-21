@@ -43,11 +43,11 @@ public interface Main {
      * Methods offered to VIEW to communicate with PRESENTER
      */
     interface ViewToPresenter extends Presenter<PresenterToView> {
-        void onButtonNextClicked();
-
-        void onButtonBackClicked();
-
-        void onButtonNextPageClicked();
+//        void onButtonNextClicked();
+//
+//        void onButtonBackClicked();
+//
+//        void onButtonNextPageClicked();
 
         void onItemClicked(ModelItem item);
     }
@@ -58,16 +58,17 @@ public interface Main {
     interface PresenterToView extends ContextView {
         void setDisplay(String txt);
 
-        void setBtnNextLabel(String txt);
+//        void setBtnNextLabel(String txt);
+//
+//        void setBtnBackLabel(String txt);
+//        void setBtnNextPageLabel(String txt);
 
-        void setBtnBackLabel(String txt);
-        void setBtnNextPageLabel(String txt);
-        void ShowBtnNext();
-
-        void ShowBtnBack();
-        void HideBtnNext();
-
-        void HideBtnBack();
+//        void ShowBtnNext();
+//
+//        void ShowBtnBack();
+//        void HideBtnNext();
+//
+//        void HideBtnBack();
 
         void finishScreen();
 

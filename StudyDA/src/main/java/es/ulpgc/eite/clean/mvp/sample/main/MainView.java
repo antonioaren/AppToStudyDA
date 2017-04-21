@@ -23,12 +23,6 @@ public class MainView
 
     private Toolbar toolbar;
 
-    private Button btnNext;
-    private Button btnBack;
-    private Button btnNextPage;
-
-    private TextView display;
-
     private RecyclerView recyclerView;
 
     @Override
@@ -37,34 +31,34 @@ public class MainView
         setContentView(R.layout.activity_main);
         Log.d(TAG, "Creating View");
 
-        display = (TextView) findViewById(R.id.display);
+//        display = (TextView) findViewById(R.id.display);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnNext = (Button) findViewById(R.id.btnNext);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getPresenter().onButtonNextClicked();
-            }
-        });
-
-        btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getPresenter().onButtonBackClicked();
-            }
-        });
-
-        btnNextPage = (Button) findViewById(R.id.btnNextPage);
-        btnNextPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getPresenter().onButtonNextPageClicked();
-            }
-        });
+//        btnNext = (Button) findViewById(R.id.btnNext);
+//        btnNext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getPresenter().onButtonNextClicked();
+//            }
+//        });
+//
+//        btnBack = (Button) findViewById(R.id.btnBack);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getPresenter().onButtonBackClicked();
+//            }
+//        });
+//
+//        btnNextPage = (Button) findViewById(R.id.btnNextPage);
+//        btnNextPage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getPresenter().onButtonNextPageClicked();
+//            }
+//        });
 
         recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setAdapter(new ModelItemRecyclerViewAdapter());
@@ -120,41 +114,41 @@ public class MainView
     @Override
     public void setDisplay(String txt) {
         Log.d(TAG, "calling setDisplay()");
-        display.setText(txt);
+        //display.setText(txt);
     }
 
     /////////////////////////////////SetTextLabel///////////////////////////////////////////////////
 
-    @Override
-    public void setBtnNextLabel(String txt) {
-        btnNext.setText(txt);
-    }
-    @Override
-    public void setBtnBackLabel(String txt) {
-        btnBack.setText(txt);
-    }
-    @Override
-    public void setBtnNextPageLabel(String txt) {
-        btnNextPage.setText(txt);
-    }
+//    @Override
+//    public void setBtnNextLabel(String txt) {
+//        btnNext.setText(txt);
+//    }
+//    @Override
+//    public void setBtnBackLabel(String txt) {
+//        btnBack.setText(txt);
+//    }
+//    @Override
+//    public void setBtnNextPageLabel(String txt) {
+//        btnNextPage.setText(txt);
+//    }
 
     //////////////////////////////////Visibilility///////777777/////////////////////////////////////
-    @Override
-    public void ShowBtnBack() {
-        btnBack.setVisibility(View.VISIBLE);
-    }
-    @Override
-    public void HideBtnBack() {
-        btnBack.setVisibility(View.INVISIBLE);
-    }
-    @Override
-    public void ShowBtnNext() {
-        btnNext.setVisibility(View.VISIBLE);
-    }
-    @Override
-    public void HideBtnNext() {
-        btnNext.setVisibility(View.INVISIBLE);
-    }
+//    @Override
+//    public void ShowBtnBack() {
+//        btnBack.setVisibility(View.VISIBLE);
+//    }
+//    @Override
+//    public void HideBtnBack() {
+//        btnBack.setVisibility(View.INVISIBLE);
+//    }
+//    @Override
+//    public void ShowBtnNext() {
+//        btnNext.setVisibility(View.VISIBLE);
+//    }
+//    @Override
+//    public void HideBtnNext() {
+//        btnNext.setVisibility(View.INVISIBLE);
+//    }
 
     //////////////////////////////////////// ADAPTER ///////////////////////////////////////////////
     @Override
@@ -218,7 +212,7 @@ public class MainView
             public ViewHolder(View view) {
                 super(view);
                 itemView = view;
-                contentView = (TextView) view.findViewById(R.id.nombre);
+                contentView = (TextView) view.findViewById(R.id.list);
             }
 
             @Override
