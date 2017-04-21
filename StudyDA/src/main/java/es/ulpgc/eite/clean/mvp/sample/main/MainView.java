@@ -16,7 +16,6 @@ import java.util.List;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.modelview.ModelItem;
-import es.ulpgc.eite.clean.mvp.sample.storage.Storage;
 
 public class MainView
         extends GenericActivity<Main.PresenterToView, Main.ViewToPresenter, MainPresenter>
@@ -194,7 +193,7 @@ public class MainView
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.item = items.get(position);
-            holder.contentView.setText(items.get(position).getTitle());
+            holder.contentView.setText(items.get(position).getNombre());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -219,7 +218,7 @@ public class MainView
             public ViewHolder(View view) {
                 super(view);
                 itemView = view;
-                contentView = (TextView) view.findViewById(R.id.items);
+                contentView = (TextView) view.findViewById(R.id.nombre);
             }
 
             @Override

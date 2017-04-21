@@ -4,6 +4,8 @@ package es.ulpgc.eite.clean.mvp.sample.main;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.List;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
@@ -122,16 +124,13 @@ public class MainPresenter extends GenericPresenter
                 getModel().Default();
             }
 
-//          getView().setDisplay(getModel().getName());
-//          getView().setBtnNextLabel(getModel().getLabelNextBtn());
-//          getView().setBtnBackLabel(getModel().getLabelBackBtn());
-//          getView().setBtnNextPageLabel(getModel().getButtonNextPageLabel());
-
             getModel().LoadItems();
+            getView().setRecyclerAdapterContent(getModel().getItems());
+
         }
         //checkToolbarVisibility();
         //checkTextVisibility();
-        CheckBtnVisibility();
+        //CheckBtnVisibility();
     }
 
     @Override

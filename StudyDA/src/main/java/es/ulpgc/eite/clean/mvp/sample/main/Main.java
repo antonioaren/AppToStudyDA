@@ -117,12 +117,15 @@ public interface Main {
         void Default();
 
         void LoadItems();
+
+        List<ModelItem> getItems();
     }
 
     /**
      * Required PRESENTER methods available to MODEL
      */
     interface ModelToPresenter {
+
 
     }
 }

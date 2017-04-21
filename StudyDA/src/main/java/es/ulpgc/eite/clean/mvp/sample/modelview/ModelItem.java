@@ -3,12 +3,12 @@ package es.ulpgc.eite.clean.mvp.sample.modelview;
 public class ModelItem {
 
     private String id;
-    private String title;
+    private String nombre;
     private String details;
 
-    public ModelItem(String id, String title, String details) {
+    public ModelItem(String id, String nombre, String details) {
         this.id = id;
-        this.title = title;
+        this.nombre = nombre;
         this.details = details;
     }
 
@@ -22,12 +22,12 @@ public class ModelItem {
     }
 
     ////////////////////////////////// Title ///////////////////////////////////
-    public String getTitle() {
-        return title;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     ////////////////////////////////// Detalles ////////////////////////////////////
@@ -43,7 +43,7 @@ public class ModelItem {
     ///////////////////////////////// parametros tipicos ///////////////////////
     @Override
     public String toString() {
-        return title;
+        return nombre;
     }
 
     @Override

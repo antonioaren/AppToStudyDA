@@ -22,6 +22,7 @@ public class Storage {
 
     private Storage() {
         nombres = new ArrayList<String>();
+
         nombres.add("Pedro");
         nombres.add("Carolina");
         nombres.add("Pedro Antonio");
