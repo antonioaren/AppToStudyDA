@@ -77,34 +77,34 @@ public class MainPresenter extends GenericPresenter
     ///////////////////////////////////////////////////////////////////////////////////
     // View To Presenter /////////////////////////////////////////////////////////////
 
-    @Override
-    public void onButtonNextClicked() {
-        Log.d(TAG, "calling onBtnNextClicked()");
-        if (isViewRunning()) {
-            getModel().nextPosition();
-            CheckBtnVisibility();
-            getView().setDisplay(getModel().getName());
-        }
-        //checkTextVisibility();
-    }
-
-    @Override
-    public void onButtonBackClicked() {
-        Log.d(TAG, "calling onBtnBackClicked()");
-        if (isViewRunning()) {
-            getModel().backPosition();
-            CheckBtnVisibility();
-            getView().setDisplay(getModel().getName());
-        }
-        //checkTextVisibility();
-    }
-
-    @Override
-    public void onButtonNextPageClicked() {
-        Log.d(TAG, "calling onBtnNextPageClicked()");
-        Navigator app = (Navigator) getView().getApplication();
-        app.goToSecondScreen(this);
-    }
+//    @Override
+//    public void onButtonNextClicked() {
+//        Log.d(TAG, "calling onBtnNextClicked()");
+//        if (isViewRunning()) {
+//            getModel().nextPosition();
+//            CheckBtnVisibility();
+//            getView().setDisplay(getModel().getName());
+//        }
+//        //checkTextVisibility();
+//    }
+//
+//    @Override
+//    public void onButtonBackClicked() {
+//        Log.d(TAG, "calling onBtnBackClicked()");
+//        if (isViewRunning()) {
+//            getModel().backPosition();
+//            CheckBtnVisibility();
+//            getView().setDisplay(getModel().getName());
+//        }
+//        //checkTextVisibility();
+//    }
+//
+//    @Override
+//    public void onButtonNextPageClicked() {
+//        Log.d(TAG, "calling onBtnNextPageClicked()");
+//        Navigator app = (Navigator) getView().getApplication();
+//        app.goToSecondScreen(this);
+//    }
 
     @Override
     public void onItemClicked(ModelItem item) {
@@ -174,24 +174,24 @@ public class MainPresenter extends GenericPresenter
     ////////////////////////////////////////////////////////////////////////////////////////
 
 
-    private void CheckBtnVisibility() {
-        CheckBtnBackVisibility();
-        CheckBtnNextVisibility();
-    }
-    private void CheckBtnBackVisibility() {
-        if (getModel().getK() != getModel().getF()) {
-            getView().ShowBtnBack();
-        } else {
-            getView().HideBtnBack();
-        }
-    }
-    private void CheckBtnNextVisibility() {
-        if (getModel().getK() != getModel().getL()) {
-            getView().ShowBtnNext();
-        } else {
-            getView().HideBtnNext();
-        }
-    }
+//    private void CheckBtnVisibility() {
+    //CheckBtnBackVisibility();
+    //CheckBtnNextVisibility();
+//    }
+//    private void CheckBtnBackVisibility() {
+//        if (getModel().getK() != getModel().getF()) {
+//            getView().ShowBtnBack();
+//        } else {
+//            getView().HideBtnBack();
+//        }
+//    }
+//    private void CheckBtnNextVisibility() {
+//        if (getModel().getK() != getModel().getL()) {
+//            getView().ShowBtnNext();
+//        } else {
+//            getView().HideBtnNext();
+//        }
+//    }
 
 //    private void CheckPosition() {
 //        if (isFirstTimeRunning) {

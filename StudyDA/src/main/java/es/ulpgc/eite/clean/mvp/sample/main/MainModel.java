@@ -153,9 +153,10 @@ public class MainModel extends GenericModel<Main.ModelToPresenter>
         for (int count = 0; count <= 9; count++) {
             items.add(new ModelItem(String.valueOf(count), "Item " + count, makeDetails(count)));
         }
-        //getPresenter().onLoadItem(items);
+
     }
 
+    //Hecho
     @Override
     public List<ModelItem> getItems() {
         return items;

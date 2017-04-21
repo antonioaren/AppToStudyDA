@@ -212,7 +212,7 @@ public class MainView
             public ViewHolder(View view) {
                 super(view);
                 itemView = view;
-                contentView = (TextView) view.findViewById(R.id.list);
+                contentView = (TextView) view.findViewById(R.id.item);
             }
 
             @Override
